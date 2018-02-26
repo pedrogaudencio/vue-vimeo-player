@@ -796,7 +796,7 @@ function getVimeoUrl() {
         throw new Error('An id or url must be passed, either in an options object or as a data-vimeo-id or data-vimeo-url attribute.');
     }
 
-    if (isInteger(idOrUrl)) {
+    if (isInteger(idOrUrl.substring(0, idOrUrl.indexOf('/')))) {
         return 'https://vimeo.com/' + idOrUrl;
     }
 
@@ -2133,7 +2133,7 @@ var vueVimeoPlayer = {
     /**
      * Loads a new video ID.
      * Returns a promise
-     * @param {Number} videoId
+     * @param {String} videoId
      * @return {LoadVideoPromise}
      */
     update: function update(videoId) {
