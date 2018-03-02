@@ -796,7 +796,7 @@ function getVimeoUrl() {
         throw new Error('An id or url must be passed, either in an options object or as a data-vimeo-id or data-vimeo-url attribute.');
     }
 
-    if (isInteger(idOrUrl.substring(0, idOrUrl.indexOf('/')))) {
+    if (isInteger(idOrUrl) || isInteger(idOrUrl.substring(0, idOrUrl.indexOf('/')))) {
         return 'https://vimeo.com/' + idOrUrl;
     }
 
